@@ -1,0 +1,77 @@
+<div class="container-resultado">
+  <h3>Detalle del documento</h3>
+  <hr class="red">
+  <div class="resultados" *ngIf="datosConsulta">
+    <!-- Resultados para escritorio -->
+    <div class="resultados-escritorio d-none d-md-block">
+      <div class="row">
+        <!-- Columna de etiquetas -->
+        <div class="col-md-6">
+          <p><strong>Nombre:</strong></p>
+          <p><strong>Tipo de documento:</strong></p>
+          <p><strong>Folio:</strong></p>
+          <p><strong>Estudios:</strong></p>
+          <p><strong>Periodo de estudios:</strong></p>
+          <p><strong>Formación laboral:</strong></p>
+          <p><strong>Autoridad emisora:</strong></p>
+          <p><strong>Fecha de registro en SIGED:</strong></p>
+        </div>
+
+        <!-- Columna de valores -->
+        <div class="col-md-6 txt-resultado">
+          <p>{{ datosConsulta.nombre }}</p>
+          <p>{{ datosConsulta.tipoDocumento }}</p>
+          <p>{{ datosConsulta.folio }}</p>
+          <p>{{ datosConsulta.estudios }}</p>
+          <p>{{ datosConsulta.periodoEstudios }}</p>
+          <p>{{ datosConsulta.formacionLaboral }}</p>
+          <p>{{ datosConsulta.autoridadEmisora }}</p>
+          <p>{{ datosConsulta.fechaRegistro }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resultados para móvil -->
+    <div class="resultados-movil d-block d-md-none">
+      <div class="row">
+        <div class="col-12">
+          <p><strong>Nombre:</strong> {{ datosConsulta.nombre }}</p>
+          <p><strong>Tipo de documento:</strong> {{ datosConsulta.tipoDocumento }}</p>
+          <p><strong>Folio:</strong> {{ datosConsulta.folio }}</p>
+          <p><strong>Estudios:</strong> {{ datosConsulta.estudios }}</p>
+          <p><strong>Periodo de estudios:</strong> {{ datosConsulta.periodoEstudios }}</p>
+          <p><strong>Formación laboral:</strong> {{ datosConsulta.formacionLaboral }}</p>
+          <p><strong>Autoridad emisora:</strong> {{ datosConsulta.autoridadEmisora }}</p>
+          <p><strong>Fecha de registro en SIGED:</strong> {{ datosConsulta.fechaRegistro }}</p>
+          <p><strong>Promedio:</strong> {{ datosConsulta.promedio }} ({{ datosConsulta.promedioTexto }})</p>
+          <p><strong>Estatus del documento:</strong> {{ datosConsulta.estatusDocumento }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cuadros adicionales (Promedio y Estatus) -->
+    <div class="container-cards">
+      <div class="row">
+        <div class="col-md-6 col-12">
+          <div class="card-promedio alert alert-success">
+            <h4>Promedio</h4>
+            <p>{{ datosConsulta.promedio }} </p>
+            <p>({{ datosConsulta.promedioTexto }})</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-12">
+          <div class="card-estatus alert alert-info">
+            <h4>Estatus del documento</h4>
+            <p>{{ datosConsulta.estatusDocumento }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mensaje para cuando no se encuentran resultados -->
+  <div *ngIf="!datosConsulta.folio">
+    <p>No se encontraron resultados para el folio proporcionado.</p>
+  </div>
+  <hr class="red">
+</div>

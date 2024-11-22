@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Maqueta"
+    }
+  },
+  "defaultProject": "Maqueta",
+  "cli": {
+    "analytics": "f3938431-ecf0-4f4a-84d1-4098387b2cc9"
+  }
 }
